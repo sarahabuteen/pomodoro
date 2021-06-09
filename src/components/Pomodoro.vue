@@ -25,11 +25,13 @@
         @skipStep="setNextStep"
       />
     </b-container>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 import Timer from '@/components/Timer.vue';
 import Actions from '@/components/Actions.vue';
 import timer from '@/enums/timer';
@@ -47,6 +49,7 @@ export default {
     Header,
     Timer,
     Actions,
+    Footer,
   },
   data() {
     return {

@@ -7,47 +7,55 @@
         aria-labelledby="Preferences"
         aria-describedby="Preferences"
       >
-        <header>
-          <h4 class="mb-0">Preferences</h4>
-          <b-button class="close-btn" variant="danger" @click="close">
-            <b-icon icon="x" color="#fff" font-scale="1.4"></b-icon>
-          </b-button>
-        </header>
-        <main class="content">
-          <form @submit.prevent="setPreferences">
-            <div class="form-content">
-              <b-form-group
-                label="Pomodoro"
-                label-for="pomodoro"
-              >
-                <b-form-input id="pomodoro" v-model="preferences.focus" v-mask="'##:##'" />
-              </b-form-group>
-              <b-form-group
-                label="Rounds"
-                label-for="rounds"
-              >
-                <b-form-input id="rounds" v-model="preferences.rounds" min="0" type="number" />
-              </b-form-group>
-              <b-form-group
-                label="Short break"
-                label-for="short-break"
-              >
-                <b-form-input id="short-break" v-model="preferences.shortBreak" v-mask="'##:##'" />
-              </b-form-group>
-              <b-form-group
-                label="Long break"
-                label-for="long-break"
-              >
-                <b-form-input id="long-break" v-model="preferences.longBreak" v-mask="'##:##'" />
-              </b-form-group>
-            </div>
-            <div class="d-flex justify-content-end">
-              <b-button variant="primary" type="submit" class="text-white">
-                Submit
-              </b-button>
-            </div>
-          </form>
-        </main>
+        <b-row>
+          <b-col cols="12" class="d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Preferences</h4>
+            <b-icon class="clickable" icon="x" color="#6c757d" font-scale="2" @click="close">
+            </b-icon>
+          </b-col>
+        </b-row>
+        <form @submit.prevent="setPreferences" class="mt-3 mb-3">
+          <div class="row">
+            <b-form-group
+              label="Pomodoro"
+              label-for="pomodoro"
+              class="col-6 mb-2"
+            >
+              <b-form-input id="pomodoro" v-model="preferences.focus" v-mask="'##:##'" />
+            </b-form-group>
+            <b-form-group
+              label="Rounds"
+              label-for="rounds"
+              class="col-6 mb-2"
+            >
+              <b-form-input id="rounds" v-model="preferences.rounds" min="0" type="number" />
+            </b-form-group>
+            <b-form-group
+              label="Short break"
+              label-for="short-break"
+              class="col-6 mb-2"
+            >
+              <b-form-input id="short-break" v-model="preferences.shortBreak" v-mask="'##:##'" />
+            </b-form-group>
+            <b-form-group
+              label="Long break"
+              label-for="long-break"
+              class="col-6 mb-2"
+            >
+              <b-form-input id="long-break" v-model="preferences.longBreak" v-mask="'##:##'" />
+            </b-form-group>
+          </div>
+        </form>
+        <b-row>
+          <b-col cols="12" class="d-flex align-items-center justify-content-end">
+            <b-button variant="secondary" type="submit" class="text-white" @click="close">
+              Cancel
+            </b-button>
+            <b-button variant="primary" type="submit" class="text-white">
+              Save
+            </b-button>
+          </b-col>
+        </b-row>
       </div>
     </div>
   </transition>
@@ -101,7 +109,7 @@ export default {
   justify-content: center;
   align-items: center;
   .modal-container {
-    border-radius: 5px;
+    border-radius: 12px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -109,44 +117,23 @@ export default {
     width: 35rem;
     padding: 20px;
     position: relative;
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .close-btn {
-        border-radius: 50%;
-        height: 28px;
-        width: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-    .content {
-      .form-content {
-        display: grid;
-        justify-content: space-around;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(2, 44%);
-        row-gap: 2rem;
-        column-gap: 4rem;
-        margin: 1rem 0;
-      }
-    }
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   }
+}
+
+.btn-secondary {
+  margin-right: 15px;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
   .modal-container  {
     width: 95vw;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .form-content {
-    grid-template-columns: 90%;
-    grid-template-rows: 10%;
-    margin: 2rem 0;
   }
 }
 
