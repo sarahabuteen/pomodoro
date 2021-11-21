@@ -16,46 +16,30 @@
         </b-row>
         <form @submit.prevent="setPreferences" class="mt-3 mb-3">
           <div class="row">
-            <b-form-group
-              label="Pomodoro"
-              label-for="pomodoro"
-              class="col-6 mb-2"
-            >
+            <b-form-group label="Pomodoro" label-for="pomodoro" class="col-6 mb-2">
               <b-form-input id="pomodoro" v-model="preferences.focus" v-mask="'##:##'" />
             </b-form-group>
-            <b-form-group
-              label="Rounds"
-              label-for="rounds"
-              class="col-6 mb-2"
-            >
+            <b-form-group label="Rounds" label-for="rounds" class="col-6 mb-2">
               <b-form-input id="rounds" v-model="preferences.rounds" min="0" type="number" />
             </b-form-group>
-            <b-form-group
-              label="Short break"
-              label-for="short-break"
-              class="col-6 mb-2"
-            >
+            <b-form-group label="Short break" label-for="short-break" class="col-6 mb-2">
               <b-form-input id="short-break" v-model="preferences.shortBreak" v-mask="'##:##'" />
             </b-form-group>
-            <b-form-group
-              label="Long break"
-              label-for="long-break"
-              class="col-6 mb-2"
-            >
+            <b-form-group label="Long break" label-for="long-break" class="col-6 mb-2">
               <b-form-input id="long-break" v-model="preferences.longBreak" v-mask="'##:##'" />
             </b-form-group>
           </div>
+          <b-row>
+            <b-col cols="12" class="d-flex align-items-center justify-content-end">
+              <b-button variant="secondary" type="submit" class="text-white" @click="close">
+                Cancel
+              </b-button>
+              <b-button variant="primary" type="submit" class="text-white">
+                Save
+              </b-button>
+            </b-col>
+          </b-row>
         </form>
-        <b-row>
-          <b-col cols="12" class="d-flex align-items-center justify-content-end">
-            <b-button variant="secondary" type="submit" class="text-white" @click="close">
-              Cancel
-            </b-button>
-            <b-button variant="primary" type="submit" class="text-white">
-              Save
-            </b-button>
-          </b-col>
-        </b-row>
       </div>
     </div>
   </transition>
@@ -66,10 +50,7 @@ import { mask } from 'vue-the-mask';
 import timer from '@/enums/timer';
 
 const {
-  focus,
-  shortBreak,
-  longBreak,
-  rounds,
+  focus, shortBreak, longBreak, rounds,
 } = timer;
 
 export default {
@@ -104,7 +85,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,7 +113,7 @@ export default {
 }
 
 @media screen and (max-width: 800px) {
-  .modal-container  {
+  .modal-container {
     width: 95vw;
   }
 }
